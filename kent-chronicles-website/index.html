@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kent Chronicles - Premium Historical Content Hub | Discover Kent's Extraordinary Heritage</title>
+    <meta name="description" content="Kent Chronicles is the definitive resource for historians and enthusiasts seeking Kent's most fascinating stories - from ancient mysteries to wartime tales, maritime heritage to architectural marvels.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            line-height: 1.6;
+            color: #333333;
+            background: #FFFFFF;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: #FFFFFF;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            border-bottom: 1px solid #E5E5E5;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333333;
+            text-decoration: none;
+            font-family: Georgia, serif;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 14px;
+            font-weight: normal;
+            font-family: Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #666666;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333333;
+            transition: 0.3s;
+        }
+
+        /* Main Content Spacing */
+        .main-content {
+            margin-top: 70px;
+            min-height: calc(100vh - 200px);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 40px 2rem;
+            background: #FFFFFF;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 60px 0;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://cdn.britannica.com/49/254049-050-F923E520/dover-castle-great-britain.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            color: #FFFFFF;
+            margin-left: -2rem;
+            margin-right: -2rem;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #000000;
+            color: #FFFFFF;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #333333;
+        }
+
+        /* Content Sections */
+        .content-section {
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: #666666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Featured Content Grid */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .featured-card {
+            background: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .featured-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .featured-card-content {
+            padding: 25px;
+        }
+
+        .featured-card h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+
+        .featured-card p {
+            color: #666666;
+            margin-bottom: 15px;
+        }
+
+        .featured-card a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: Arial, sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .featured-card a:hover {
+            color: #666666;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 30px;
+            background: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 8px;
+        }
+
+        .team-member h3 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+
+        .team-member .role {
+            font-size: 16px;
+            color: #666666;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: Arial, sans-serif;
+        }
+
+        .team-member p {
+            color: #666666;
+            font-size: 16px;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: #F8F8F8;
+            padding: 60px 0;
+            margin: 60px -2rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: #FFFFFF;
+            border-top: 1px solid #E5E5E5;
+            padding: 2rem;
+            text-align: center;
+            color: #666666;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #666666;
+        }
+
+        .footer-description {
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666666;
+        }
+
+        .footer-copyright {
+            font-size: 12px;
+            color: #666666;
+            border-top: 1px solid #E5E5E5;
+            padding-top: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: #FFFFFF;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                gap: 1.5rem;
+                transition: left 0.3s ease;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .main-content {
+                padding: 20px 1rem;
+            }
+
+            .hero {
+                margin-left: -1rem;
+                margin-right: -1rem;
+                padding: 40px 1rem;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-section {
+                margin: 60px -1rem;
+            }
+
+            .footer {
+                padding: 1.5rem 1rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="/" class="logo">Kent Chronicles</a>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/military-heritage">Military Heritage</a></li>
+                <li><a href="/maritime-history">Maritime History</a></li>
+                <li><a href="/ancient-kent">Ancient Kent</a></li>
+                <li><a href="/victorian-era">Victorian Era</a></li>
+                <li><a href="/about-us">About Us</a></li>
+                <li><a href="/our-historians">Our Historians</a></li>
+                <li><a href="/our-team">Our Team</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Discover Kent's Extraordinary Heritage</h1>
+            <p>Your definitive resource for historians and enthusiasts seeking Kent's most fascinating stories - from ancient mysteries to wartime tales, maritime heritage to architectural marvels.</p>
+            <a href="/about-us" class="cta-button">Explore Our Mission</a>
+        </section>
+
+        <!-- Introduction Section -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2>Welcome to Kent Chronicles</h2>
+                <p>Kent, England's southeastern jewel, holds within its boundaries some of the most compelling historical narratives in British history. From the white cliffs of Dover that have stood sentinel against countless invasions to the ancient stones of Canterbury Cathedral where pilgrims have journeyed for centuries, Kent's landscape tells stories of triumph, tragedy, and transformation.</p>
+            </div>
+            
+            <p style="font-size: 18px; line-height: 1.8; color: #333333; margin-bottom: 30px;">
+                Our mission at Kent Chronicles is to serve as the premier digital destination for those seeking to understand and appreciate the rich tapestry of Kent's historical heritage. Whether you're a professional historian conducting research, a student exploring England's past, or simply an enthusiast captivated by the stories that shaped this remarkable county, our platform offers unparalleled access to carefully curated content that brings Kent's history to life.
+            </p>
+
+            <p style="font-size: 18px; line-height: 1.8; color: #333333; margin-bottom: 30px;">
+                The Garden of England, as Kent is affectionately known, has played a pivotal role in British history from the Roman conquest through both World Wars and into the modern era. Our comprehensive coverage spans millennia, exploring everything from prehistoric settlements and Roman fortifications to medieval monasteries, Tudor castles, Victorian innovations, and wartime heroics that protected Britain's shores.
+            </p>
+        </section>
+
+        <!-- Featured Content Section -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2>Featured Historical Discoveries</h2>
+                <p>Explore our most captivating stories from across Kent's rich historical timeline</p>
+            </div>
+
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <img src="https://www.english-heritage.org.uk/siteassets/home/visit/places-to-visit/dover-castle/history-and-stories/new-history/dover_social.jpg" alt="Dover Castle - England's Mightiest Fortress">
+                    <div class="featured-card-content">
+                        <h3>Dover Castle: Guardian of the Gateway</h3>
+                        <p>Discover the secrets of England's mightiest fortress, from its medieval origins to its crucial role in World War II. Explore the underground tunnels where Operation Dynamo was planned.</p>
+                        <a href="/military-heritage">Explore Military Heritage →</a>
+                    </div>
+                </div>
+
+                <div class="featured-card">
+                    <img src="https://cdn.britannica.com/52/128552-050-292B53E1/Port-of-Dover-one-Kent-England-times.jpg" alt="Dover Harbor - Maritime Heritage">
+                    <div class="featured-card-content">
+                        <h3>Maritime Legends of the Cinque Ports</h3>
+                        <p>Uncover the fascinating history of Kent's ancient maritime confederation, from medieval trading privileges to dramatic tales of smuggling and naval warfare along the Channel coast.</p>
+                        <a href="/maritime-history">Discover Maritime History →</a>
+                    </div>
+                </div>
+
+                <div class="featured-card">
+                    <img src="https://whc.unesco.org/uploads/thumbs/site_0496_0001-750-750-20090923140329.jpg" alt="Canterbury Cathedral - Ancient Kent">
+                    <div class="featured-card-content">
+                        <h3>Sacred Stones: Canterbury's Ancient Foundations</h3>
+                        <p>Journey through centuries of spiritual significance, from Roman temples to Norman architecture. Explore the archaeological treasures that reveal Kent's deep-rooted Christian heritage.</p>
+                        <a href="/ancient-kent">Explore Ancient Kent →</a>
+                    </div>
+                </div>
+
+                <div class="featured-card">
+                    <img src="https://www.english-heritage.org.uk/siteassets/home/learn/story-of-england/victorian/architecture/victorian-architecture-social.jpg" alt="Victorian Kent Architecture">
+                    <div class="featured-card-content">
+                        <h3>Victorian Grandeur: Kent's Architectural Revolution</h3>
+                        <p>Witness the transformation of Kent during the Victorian era, from railway expansion to seaside resort development. Discover the architectural marvels that defined an age of innovation.</p>
+                        <a href="/victorian-era">Explore Victorian Era →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2>Meet Our Expert Team</h2>
+                <p>Passionate historians and researchers dedicated to preserving Kent's extraordinary heritage</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <h3>Sandra Beal</h3>
+                    <div class="role">Founder & Lead Historian</div>
+                    <p>A lifelong Kent resident with deep roots in the county's history. Sandra brings decades of local knowledge and historical expertise to Kent Chronicles, having lived in Kent her entire life and witnessed the evolution of the county's historical landscape firsthand.</p>
+                </div>
+
+                <div class="team-member">
+                    <h3>Jack Smith</h3>
+                    <div class="role">Writer & Researcher</div>
+                    <p>Passionate about the intersection of geography and history, Jack brings a unique perspective to Kent Chronicles. His expertise in geographical historical analysis helps illuminate how Kent's landscape has shaped its remarkable story across the centuries.</p>
+                </div>
+
+                <div class="team-member">
+                    <h3>Philip Bass</h3>
+                    <div class="role">Kent Magazine Founder & Writer</div>
+                    <p>An accomplished writer and magazine founder, Philip contributes extensive editorial expertise to Kent Chronicles. His experience in Kent-focused publishing ensures our content meets the highest standards of historical accuracy and engaging storytelling.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">2000+</div>
+                    <div class="stat-label">Years of History</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Historical Sites</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Museum Collections</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Research Articles</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historical Periods Overview -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2>Explore Kent Through the Ages</h2>
+                <p>Journey through millennia of Kent's remarkable historical evolution</p>
+            </div>
+
+            <p style="font-size: 18px; line-height: 1.8; color: #333333; margin-bottom: 30px;">
+                Kent's strategic position as England's gateway to continental Europe has made it a stage for some of the most significant events in British history. From the Roman invasion at Richborough to the Norman Conquest's landing at Pevensey, from the medieval pilgrimage routes to Canterbury to the Battle of Britain fought in Kent's skies, our county has been at the heart of national transformation.
+            </p>
+
+            <p style="font-size: 18px; line-height: 1.8; color: #333333; margin-bottom: 30px;">
+                Our comprehensive coverage explores how Kent's unique geographical position has influenced its development through the ages. The chalk downs, fertile valleys, and extensive coastline have not only shaped the landscape but also determined the county's role in trade, defense, and cultural exchange. From prehistoric settlements along the Medway to Victorian seaside resorts dotting the coast, each era has left its distinctive mark on Kent's character.
+            </p>
+
+            <p style="font-size: 18px; line-height: 1.8; color: #333333; margin-bottom: 30px;">
+                At Kent Chronicles, we believe that understanding the past enriches our appreciation of the present. Our research extends beyond famous landmarks to uncover the stories of ordinary people who lived, worked, and shaped their communities throughout Kent's history. Through detailed analysis of archaeological findings, historical documents, and oral traditions, we paint a complete picture of life in Kent across the centuries.
+            </p>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="content-section" style="text-align: center; background: #F8F8F8; padding: 60px 2rem; margin: 60px -2rem; border-radius: 8px;">
+            <h2 style="font-size: 32px; margin-bottom: 20px; color: #333333;">Begin Your Historical Journey</h2>
+            <p style="font-size: 18px; color: #666666; max-width: 600px; margin: 0 auto 30px;">
+                Join us in exploring the extraordinary heritage of Kent. Whether you're researching family history, planning historical visits, or simply passionate about the past, Kent Chronicles is your gateway to discovery.
+            </p>
+            <a href="/about-us" class="cta-button">Learn More About Us</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/military-heritage">Military Heritage</a>
+            <a href="/maritime-history">Maritime History</a>
+            <a href="/ancient-kent">Ancient Kent</a>
+            <a href="/victorian-era">Victorian Era</a>
+            <a href="/about-us">About Us</a>
+            <a href="/our-historians">Our Historians</a>
+            <a href="/our-team">Our Team</a>
+        </div>
+        
+        <div class="footer-description">
+            Kent Chronicles is the definitive resource for historians and enthusiasts seeking Kent's most fascinating stories - from ancient mysteries to wartime tales, maritime heritage to architectural marvels.
+        </div>
+        
+        <div class="footer-copyright">
+            <p>&copy; 2025 Kent Chronicles. All rights reserved. | Preserving Kent's extraordinary heritage for future generations.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+    </script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDsUe8AVHB6W23fAXDaDrnbgWnM8zNygpjk%2F5cHOKGKs0h%2F%2FK9atinnI5EGwOBmnxnEIjwsfZ7YIQ7kgTRwkdH79zVLlSdq5t0vZSZOC3Su2TjhsCh0SPKQKoYrWdRkgrWp5yP9eTwCV62t6%2BTBr2nmK%2F%2BOb2JaqsPotEecKT3lhbwMWPH4sVSTnf1chmD%2Bz6YTcZm82eQsLwgzSVnBd5AV3mYbV%2Bx4b%2FwB0b9sVRRhEvLU6dZvLRRb0vRuCWRugtceD60AzSPGjlg1kQouLD55WFPEoiyvglw1vSAT48S1H70CD60%2FVWbOFHxLWa%2BhEO3JLBQrfupAkpniQw4Mo8m6t0zP%2Bdx%2B%2BJFZhGZNSZx7Kp5qCg%2F02kKJk31Gjff6tkA%2BvtQZo8MKwpBMJlGoYvGKgXTwovq53GfZVlqW7rxIbr%2F80mXlaxL2KcqVOB%2F4Nw6skKsGVR5rSOZf%2FEW9jHoF5M0E72epnjj53jaNHDKYf3";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDsUe8AVHB6W23fAXDaDrnbgWnM8zNygpjk/5cHOKGKs0h//K9atinnI5EGwOBmnxnEIjwsfZ7YIQ7kgTRwkdH79zVLlSdq5t0vZSZOC3Su2TjhsCh0SPKQKoYrWdRkgrWp5yP9eTwCV62t6+TBr2nmK/+Ob2JaqsPotEecKT3lhbwMWPH4sVSTnf1chmD+z6YTcZm82eQsLwgzSVnBd5AV3mYbV+x4b/wB0b9sVRRhEvLU6dZvLRRb0vRuCWRugtceD60AzSPGjlg1kQouLD55WFPEoiyvglw1vSAT48S1H70CD60/VWbOFHxLWa+hEO3JLBQrfupAkpniQw4Mo8m6t0zP+dx++JFZhGZNSZx7Kp5qCg/02kKJk31Gjff6tkA+vtQZo8MKwpBMJlGoYvGKgXTwovq53GfZVlqW7rxIbr/80mXlaxL2KcqVOB/4Nw6skKsGVR5rSOZf/EW9jHoF5M0E72epnjj53jaNHDKYf3";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

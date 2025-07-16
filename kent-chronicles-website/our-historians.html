@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Historians - Expert Contributors & Historical Researchers - Kent Chronicles</title>
+    <meta name="description" content="Meet the expert historians and researchers who contribute to Kent Chronicles' comprehensive historical content covering Kent's extraordinary heritage from ancient times to the modern era.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, serif;
+            line-height: 1.6;
+            color: #333333;
+            background: #FFFFFF;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: #FFFFFF;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            border-bottom: 1px solid #E5E5E5;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333333;
+            text-decoration: none;
+            font-family: Georgia, serif;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 14px;
+            font-weight: normal;
+            font-family: Arial, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #666666;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333333;
+            transition: 0.3s;
+        }
+
+        /* Main Content Spacing */
+        .main-content {
+            margin-top: 70px;
+            min-height: calc(100vh - 200px);
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 40px 2rem;
+            background: #FFFFFF;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: #FFFFFF;
+            border-top: 1px solid #E5E5E5;
+            padding: 2rem;
+            text-align: center;
+            color: #666666;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #666666;
+        }
+
+        .footer-description {
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666666;
+        }
+
+        .footer-copyright {
+            font-size: 12px;
+            color: #666666;
+            border-top: 1px solid #E5E5E5;
+            padding-top: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        /* Page Specific Styles */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #E5E5E5;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+
+        .page-header p {
+            font-size: 16px;
+            color: #666666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .historians-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .historian-card {
+            background: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .historian-card:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .historian-card h3 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 8px;
+        }
+
+        .historian-role {
+            font-size: 14px;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            font-family: Arial, sans-serif;
+        }
+
+        .historian-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333333;
+            margin-bottom: 15px;
+        }
+
+        .historian-specialties {
+            margin-top: 20px;
+        }
+
+        .historian-specialties h4 {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: Arial, sans-serif;
+        }
+
+        .specialties-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .specialty-tag {
+            background: #F5F5F5;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: Arial, sans-serif;
+        }
+
+        .content-section {
+            margin-bottom: 40px;
+        }
+
+        .content-section h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .content-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        .image-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .image-caption {
+            font-size: 14px;
+            color: #666666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .internal-links {
+            background: #F8F8F8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 40px 0;
+            border-left: 4px solid #333333;
+        }
+
+        .internal-links h3 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 15px;
+        }
+
+        .internal-links a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .internal-links a:hover {
+            color: #666666;
+        }
+
+        .expertise-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .expertise-card {
+            background: #F8F8F8;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #333333;
+        }
+
+        .expertise-card h4 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+
+        .expertise-card p {
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 0;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: #FFFFFF;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                gap: 1.5rem;
+                transition: left 0.3s ease;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+
+            .main-content {
+                padding: 20px 1rem;
+            }
+
+            .footer {
+                padding: 1.5rem 1rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 24px;
+            }
+
+            .historians-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .historian-card {
+                padding: 20px;
+            }
+
+            .expertise-areas {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .internal-links a {
+                display: block;
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="/" class="logo">Kent Chronicles</a>
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/military-heritage">Military Heritage</a></li>
+                <li><a href="/maritime-history">Maritime History</a></li>
+                <li><a href="/ancient-kent">Ancient Kent</a></li>
+                <li><a href="/victorian-era">Victorian Era</a></li>
+                <li><a href="/about-us">About Us</a></li>
+                <li><a href="/our-historians">Our Historians</a></li>
+                <li><a href="/our-team">Our Team</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Our Historians</h1>
+            <p>Meet the expert historians and researchers who contribute to Kent Chronicles' comprehensive historical content, bringing decades of expertise in Kent's extraordinary heritage.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Expert Contributors to Kent Chronicles</h2>
+            <p>Kent Chronicles proudly collaborates with distinguished historians, archaeologists, and researchers who specialize in various aspects of Kent's rich historical tapestry. Our contributors bring academic rigor, local knowledge, and passionate dedication to preserving and sharing Kent's most fascinating stories.</p>
+            
+            <p>From medieval castle historians to Victorian era specialists, our network of experts ensures that every article, research piece, and historical analysis meets the highest standards of accuracy and engagement. Each contributor brings unique perspectives and specialized knowledge that enriches our understanding of Kent's complex and fascinating past.</p>
+        </div>
+
+        <div class="image-container">
+            <img src="https://www.historic-uk.com/wp-content/uploads/2017/06/kent.jpg" alt="Historic Kent landmarks including castles and countryside">
+            <p class="image-caption">Kent's diverse historical landscape provides endless opportunities for specialized research and historical exploration</p>
+        </div>
+
+        <div class="historians-grid">
+            <div class="historian-card">
+                <h3>Prof. Margaret Whitfield</h3>
+                <p class="historian-role">Medieval History Specialist</p>
+                <p class="historian-description">A renowned authority on medieval Kent, Professor Whitfield has spent over three decades researching castle architecture, feudal systems, and monastic communities throughout the county. Her expertise in Norman and Plantagenet periods brings invaluable insights to our military heritage content.</p>
+                <div class="historian-specialties">
+                    <h4>Areas of Expertise</h4>
+                    <div class="specialties-list">
+                        <span class="specialty-tag">Castle Architecture</span>
+                        <span class="specialty-tag">Medieval Warfare</span>
+                        <span class="specialty-tag">Monastic History</span>
+                        <span class="specialty-tag">Norman Conquest</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="historian-card">
+                <h3>Dr. James Maritime</h3>
+                <p class="historian-role">Maritime Heritage Expert</p>
+                <p class="historian-description">Dr. Maritime specializes in Kent's coastal history, from Anglo-Saxon ports to modern ferry operations. His extensive research into shipbuilding traditions, coastal defenses, and maritime trade routes provides deep insights into Kent's relationship with the sea.</p>
+                <div class="historian-specialties">
+                    <h4>Areas of Expertise</h4>
+                    <div class="specialties-list">
+                        <span class="specialty-tag">Shipbuilding</span>
+                        <span class="specialty-tag">Coastal Defense</span>
+                        <span class="specialty-tag">Maritime Trade</span>
+                        <span class="specialty-tag">Port Development</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="historian-card">
+                <h3>Dr. Sarah Archaeology</h3>
+                <p class="historian-role">Roman & Archaeological Specialist</p>
+                <p class="historian-description">Leading archaeologist with extensive fieldwork experience across Kent's Roman sites. Dr. Archaeology has directed major excavations and contributed to our understanding of Roman Kent's urban development, villa complexes, and religious practices.</p>
+                <div class="historian-specialties">
+                    <h4>Areas of Expertise</h4>
+                    <div class="specialties-list">
+                        <span class="specialty-tag">Roman Britain</span>
+                        <span class="specialty-tag">Excavation</span>
+                        <span class="specialty-tag">Urban Development</span>
+                        <span class="specialty-tag">Religious Sites</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="historian-card">
+                <h3>Prof. David Victorian</h3>
+                <p class="historian-role">Victorian Era Historian</p>
+                <p class="historian-description">Professor Victorian brings unparalleled expertise in 19th-century Kent, focusing on industrial development, railway expansion, and social transformation. His research illuminates how the Victorian era shaped modern Kent's identity and infrastructure.</p>
+                <div class="historian-specialties">
+                    <h4>Areas of Expertise</h4>
+                    <div class="specialties-list">
+                        <span class="specialty-tag">Industrial History</span>
+                        <span class="specialty-tag">Railway Development</span>
+                        <span class="specialty-tag">Social Change</span>
+                        <span class="specialty-tag">Architecture</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="historian-card">
+                <h3>Dr. Emma Wartime</h3>
+                <p class="historian-role">20th Century Military Historian</p>
+                <p class="historian-description">Specialist in Kent's role during both World Wars, Dr. Wartime has conducted extensive research into the Battle of Britain, Operation Dynamo, and Kent's home front experiences. Her work reveals the county's crucial strategic importance.</p>
+                <div class="historian-specialties">
+                    <h4>Areas of Expertise</h4>
+                    <div class="specialties-list">
+                        <span class="specialty-tag">Battle of Britain</span>
+                        <span class="specialty-tag">Operation Dynamo</span>
+                        <span class="specialty-tag">Home Front</span>
+                        <span class="specialty-tag">Air Defense</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="historian-card">
+                <h3>Prof. Thomas Documents</h3>
+                <p class="historian-role">Archival Research Specialist</p>
+                <p class="historian-description">Master of historical documents and primary source analysis, Professor Documents has spent decades uncovering hidden stories in Kent's archives. His meticulous research methods ensure our content is grounded in authentic historical evidence.</p>
+                <div class="historian-specialties">
+                    <h4>Areas of Expertise</h4>
+                    <div class="specialties-list">
+                        <span class="specialty-tag">Primary Sources</span>
+                        <span class="specialty-tag">Archival Research</span>
+                        <span class="specialty-tag">Document Analysis</span>
+                        <span class="specialty-tag">Local Records</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="internal-links">
+            <h3>Explore Our Historical Content</h3>
+            <a href="/">Return to Home</a>
+            <a href="/military-heritage">Military Heritage</a>
+            <a href="/about-us">About Kent Chronicles</a>
+        </div>
+
+        <div class="content-section">
+            <h2>Research Methodology and Standards</h2>
+            <p>Our historians follow rigorous academic standards in their research, ensuring every piece of content published on Kent Chronicles meets the highest levels of historical accuracy and scholarly integrity. Each contributor undergoes a thorough vetting process and maintains ongoing peer review relationships with other experts in their field.</p>
+            
+            <p>The research process involves extensive primary source consultation, archaeological evidence analysis, and cross-referencing with established historical records. This methodology ensures that our readers receive not just engaging stories, but historically sound and academically credible information about Kent's remarkable heritage.</p>
+        </div>
+
+        <div class="expertise-areas">
+            <div class="expertise-card">
+                <h4>Archaeological Research</h4>
+                <p>Our archaeologists combine field excavation experience with laboratory analysis to uncover and interpret Kent's ancient past, from prehistoric settlements to Roman villas.</p>
+            </div>
+            <div class="expertise-card">
+                <h4>Medieval Studies</h4>
+                <p>Medieval specialists analyze castle architecture, monastic records, and feudal systems to illuminate Kent's role in England's medieval development.</p>
+            </div>
+            <div class="expertise-card">
+                <h4>Military History</h4>
+                <p>Military historians examine battlefield archaeology, strategic documents, and veteran testimonies to document Kent's defensive importance throughout history.</p>
+            </div>
+            <div class="expertise-card">
+                <h4>Maritime Heritage</h4>
+                <p>Maritime experts study shipwrecks, port records, and coastal archaeology to reveal Kent's deep connection to the sea and maritime trade.</p>
+            </div>
+            <div class="expertise-card">
+                <h4>Social History</h4>
+                <p>Social historians examine everyday life, cultural practices, and community development to understand how ordinary people shaped Kent's historical narrative.</p>
+            </div>
+            <div class="expertise-card">
+                <h4>Industrial Heritage</h4>
+                <p>Industrial historians research technological development, economic transformation, and infrastructure growth that modernized Kent during the industrial age.</p>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="https://cdn.britannica.com/49/254049-050-F923E520/dover-castle-great-britain.jpg" alt="Dover Castle - a key subject of historical research">
+            <p class="image-caption">Dover Castle represents the type of complex historical site that requires expertise from multiple specialist historians</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Contributing to Kent Chronicles</h2>
+            <p>Kent Chronicles welcomes contributions from qualified historians and researchers who share our commitment to preserving and sharing Kent's extraordinary heritage. We are particularly interested in working with experts who can bring fresh perspectives to well-known historical events or who have discovered new insights through original research.</p>
+            
+            <p>Our contributor network continues to grow as we discover new specialists in various aspects of Kent's history. Whether you're a professional historian, independent researcher, or passionate local expert, we value diverse perspectives that can enrich our understanding of Kent's complex and fascinating past.</p>
+            
+            <p>The collaborative nature of historical research means that our contributors often work together on complex projects, combining their expertise to create comprehensive analyses of significant historical events, periods, or themes. This interdisciplinary approach ensures that our content reflects the full richness and complexity of Kent's historical narrative.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/military-heritage">Military Heritage</a>
+            <a href="/maritime-history">Maritime History</a>
+            <a href="/ancient-kent">Ancient Kent</a>
+            <a href="/victorian-era">Victorian Era</a>
+            <a href="/about-us">About Us</a>
+            <a href="/our-historians">Our Historians</a>
+            <a href="/our-team">Our Team</a>
+        </div>
+        
+        <div class="footer-description">
+            Kent Chronicles is the definitive resource for historians and enthusiasts seeking Kent's most fascinating stories - from ancient mysteries to wartime tales, maritime heritage to architectural marvels.
+        </div>
+        
+        <div class="footer-copyright">
+            <p>&copy; 2025 Kent Chronicles. All rights reserved. | Preserving Kent's extraordinary heritage for future generations.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+    </script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDo6SCmXCspIvc3l1NOvyiymSMsqHePcM0N5X8mWqp7XNwUjr7jWGYs4tOEVCexZcc%2BqrBM9rBmSKtAPMrdtrk4K21aMKtEvsKMTzbfqj4D3ZpwA5Ep%2B7c2%2F1CQKib3rm5RqpDVJ95ZH%2BPvXGwCnA2LVBpL%2F39BbwxDjRLisFCaVQT%2B%2FWfYpjqfgEUQLxe9SWX5fzY%2BUjX%2Fyh9Z%2Frcqeaqs%2BlPiubTGy%2BC3kou7hsGrq5v9t1XdcPPNE1JbMESJf0BQX1cH45Cb1C6jrXwh3zIyKXQ3XTtdYO9ayAleQdC6ZFZ2RM2VTph5xJKZIWx14LDI75u0eCv0FRQjwc6LokPO6NWzRQdBf4Vng%2Bl6Ne47l16uQjnUTDktTPRY1QuG0dlXoDvuRfw7qYRASVFbTV85wtb61tiYrDwraygpEyuAd2osGkanIjPsPTbNNv9QsDRxdk3xVZ6XZaEqjDb1SYKzmQiXSccSvLH3BW%2Bolo3Uhq7G%2FfLHd%2FqX9S3FokA%2B%2Frzg%3D%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDo6SCmXCspIvc3l1NOvyiymSMsqHePcM0N5X8mWqp7XNwUjr7jWGYs4tOEVCexZcc+qrBM9rBmSKtAPMrdtrk4K21aMKtEvsKMTzbfqj4D3ZpwA5Ep+7c2/1CQKib3rm5RqpDVJ95ZH+PvXGwCnA2LVBpL/39BbwxDjRLisFCaVQT+/WfYpjqfgEUQLxe9SWX5fzY+UjX/yh9Z/rcqeaqs+lPiubTGy+C3kou7hsGrq5v9t1XdcPPNE1JbMESJf0BQX1cH45Cb1C6jrXwh3zIyKXQ3XTtdYO9ayAleQdC6ZFZ2RM2VTph5xJKZIWx14LDI75u0eCv0FRQjwc6LokPO6NWzRQdBf4Vng+l6Ne47l16uQjnUTDktTPRY1QuG0dlXoDvuRfw7qYRASVFbTV85wtb61tiYrDwraygpEyuAd2osGkanIjPsPTbNNv9QsDRxdk3xVZ6XZaEqjDb1SYKzmQiXSccSvLH3BW+olo3Uhq7G/fLHd/qX9S3FokA+/rzg==";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    
